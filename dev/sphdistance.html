@@ -224,8 +224,10 @@
 <p>Create Voronoi distance, node, or natural nearest-neighbor grid on a sphere</p>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p><strong>gmt sphdistance</strong> [ <em>table</em> ] <a class="reference internal" href="#g"><span> <strong>-G</strong></span></a></strong><em>grdfile</em>
+<p><strong>gmt sphdistance</strong> [ <em>table</em> ]
+<a class="reference internal" href="#g"><span> <strong>-G</strong></span></a></strong><em>grdfile</em>
 [ <a class="reference internal" href="#c"><span> <strong>-C</strong></span></a></strong> ]
+[ <a class="reference internal" href="#d"><span> <strong>-D</strong></span></a></strong> ]
 [ <a class="reference internal" href="#e"><span> <strong>-E</strong></span></a></strong><strong>d</strong>|<strong>n</strong>|<strong>z</strong>[<em>dist</em>] ]
 [ <a class="reference internal" href="#i"><span> <strong>-I</strong></span></a></strong><em>increment</em> ]
 [ <a class="reference internal" href="#l"><span> <strong>-L</strong></span></a></strong><em>unit</em> ]
@@ -278,6 +280,11 @@ processing) by only storing one form of location coordinates
 (geographic or Cartesian 3-D vectors) at any given time, translating
 from one form to the other when necessary [Default keeps both arrays
 in memory]. Not applicable with <strong>-Q</strong>.</p>
+</dd>
+</dl>
+<dl class="simple" id="d">
+<dt><strong>-D</strong></dt><dd><p>Used to skip duplicate points since the algorithm cannot handle them.
+[Default assumes there are no duplicates].</p>
 </dd>
 </dl>
 <dl class="simple" id="e">
@@ -484,6 +491,15 @@ gmt sphdistance -Qvoronoi.txt -Rg -I1 -Gglobedist.nc
 </div>
 </div></blockquote>
 </div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>The STRIPACK algorithm and implementation expect that there are no duplicate points
+in the input.  It is best that the user ensures that this is the case.  GMT has tools,
+such as <a class="reference internal" href="blockmean.html"><span class="doc">blockmean</span></a> and others, to combine close points into single entries.
+Also, <strong>sphdistance</strong> has a <strong>-D</strong> option to determine and exclude duplicates, but
+it is a very brute-force yet exact comparision that is very slow for large data sets.
+Detection of duplicates in the STRIPACK library will exit the module.</p>
+</div>
 <div class="section" id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="gmt.html"><span class="doc">gmt</span></a>,
@@ -521,7 +537,7 @@ Voronoi Diagram on the Surface of a Sphere, <em>AMC Trans. Math. Software</em>,
         
         &copy; Copyright 2020, The GMT Team.
       <span class="lastupdated">
-        Last updated on Sep 20, 2020.
+        Last updated on Oct 07, 2020.
       </span>
 
     </p>

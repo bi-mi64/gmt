@@ -932,9 +932,7 @@ refers to, and the grid dimensions <em>nx</em> and <em>ny</em> with grid spacing
 <strong>-I</strong> is used to create the corresponding region.
 Alternatively, specify the name of an existing grid file and the
 <strong>-R</strong> settings (and grid spacing and registration, if applicable) are copied from
-the grid. When <strong>-R</strong> is used without any further arguments, the
-values from the last use of <strong>-R</strong> in a previous GMT command
-will be used.
+the grid.
 For calendar time coordinates you may either give (a) relative time
 (relative to the selected <a class="reference internal" href="gmt.conf.html#term-TIME_EPOCH"><span class="xref std std-term">TIME_EPOCH</span></a> and in the selected
 <a class="reference internal" href="gmt.conf.html#term-TIME_UNIT"><span class="xref std std-term">TIME_UNIT</span></a>; append <strong>t</strong> to <strong>-JX</strong>|<strong>x</strong>), or (b) absolute
@@ -954,7 +952,10 @@ on the projection center (0, 0). These coordinates are internally
 converted to the corresponding geographic (longitude, latitude)
 coordinates for the lower left and upper right corners. This form is
 convenient when you want to specify a region directly in the
-projected units (e.g., UTM meters).  For Cartesian data in radians you
+projected units (e.g., UTM meters).  This modifier also applies if you give
+the region via a grid file.  <strong>Note</strong>: For the UTM, TM and Stereographic projections
+we will guess the units in your grid to be meter if the domain exceeds the range of geographical
+longitude and latitude.  For Cartesian data in radians you
 can also use [±][<em>s</em>]<strong>pi</strong>[<em>f</em>], for optional integer
 scales <em>s</em> and fractions <em>f</em>.</p>
 </dd>
@@ -1615,7 +1616,7 @@ GMT documentation site <a class="reference external" href="https://docs.generic-
         
         &copy; Copyright 2020, The GMT Team.
       <span class="lastupdated">
-        Last updated on Sep 20, 2020.
+        Last updated on Oct 07, 2020.
       </span>
 
     </p>

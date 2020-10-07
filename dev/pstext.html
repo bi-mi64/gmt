@@ -387,7 +387,7 @@ To <strong>not</strong> plot the text but activate clipping, use <strong>-G+n</s
 <dl class="simple" id="m">
 <dt><strong>-M</strong></dt><dd><p>Paragraph mode. Files must be multiple segment files. Segments are
 separated by a special record whose first character must be <em>flag</em>
-[Default is <strong>&gt;</strong>]. Starting in the 3rd column, we expect to find
+[Default is <strong>&gt;</strong>]. Starting in the 3rd field, we expect to find
 information pertaining to the typesetting of a text paragraph (the
 remaining lines until next segment header). The information expected
 is (<em>x y</em> [<em>font angle justify</em>] <em>linespace parwidth parjust</em>),
@@ -398,8 +398,9 @@ The justification of the text paragraph is governed by <em>parjust</em>
 which may be <strong>l</strong>(eft), <strong>c</strong>(enter), <strong>r</strong>(ight), or
 <strong>j</strong>(ustified). The segment header is followed by one or more
 lines with paragraph text. Text may contain the escape sequences
-discussed above. Separate paragraphs with a blank line.  Note that
-here, the justification set via <strong>-F+j</strong> applies to the box alignment
+discussed above, although composite characters are not supported.
+Separate paragraphs with a blank line.  Note that here,
+the justification set via <strong>-F+j</strong> applies to the box alignment
 since the text justification is set by <em>parjust</em>.</p>
 </dd>
 </dl>
@@ -623,7 +624,7 @@ trailing text.</p>
         
         &copy; Copyright 2020, The GMT Team.
       <span class="lastupdated">
-        Last updated on Sep 20, 2020.
+        Last updated on Oct 07, 2020.
       </span>
 
     </p>
